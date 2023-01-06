@@ -7,6 +7,6 @@ How to use:
 1) In a browsers, not the app (if you can do it in app why are you using my code?) go to your league and click on "Submit Your Votes" so you see the voting scren
 2) Press F12 to open the developer window
 3) Find the Console in the developer window
-4) Past the code from musicleagecsv.js and hit enter
+4) Past the code from musicleagecsv.min.js and hit enter
 5) Download of playlist.csv should happen almost immediately
 6) The table is printed to the console too and you should be able to copy it out if the csv is weird

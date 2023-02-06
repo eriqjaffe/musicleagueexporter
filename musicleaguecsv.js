@@ -1,26 +1,33 @@
-//BucketHatBob 1/6/2023
+//BucketHatBob 1/6/2023 modified eriqjaffe 2/6/2023
 
 var songs = Array.from(document.getElementsByClassName("rounded"));
 var playlistInfo = [];
 
-songs.forEach(song => {
+songs.slice(1).forEach(song => {
     var songInfo = {
         name: "",
         artist: "",
         album: "",
-        notes: ""
+        submittedBy: "",
+        votes: ""
     };
     var dats = Array.from(song.getElementsByClassName("d-block"));
     var i = 0;
-    var name, artist, album;
+    var name, artist, album, sumbittedBy, votes;
     dats.forEach(dat => {
+       
         var datEls = Array.from(dat.children);
+    		console.log(i)
         if (i == 0) {
             songInfo.name = '"' + datEls[0].innerHTML + '"';
         } else if (i == 1) {
             songInfo.artist = '"' + datEls[0].innerHTML + '"';
         } else if (i == 2) {
             songInfo.album = '"' + datEls[0].innerHTML + '"';
+        } else if (i == 3) {
+            songInfo.votes = dat.innerHTML.slice(1);
+        } else if (i == 4) {
+            songInfo.submittedBy = dat.innerHTML.slice(13);
         }
         i++;
     });
@@ -54,10 +61,12 @@ for (let row = 0; row < playlistInfo.length; row++) {
     keysCounter = 0
 }
 
+console.log(csv)
+
 // Once we are done looping, download the .csv by creating a link
 let link = document.createElement('a');
 link.id = 'download-csv';
-link.setAttribute('href', 'data:text/plain;charset=utf-8,' + csv);
+link.setAttribute('href', 'data:text/csv;charset=utf-8,' + csv);
 link.setAttribute('download', 'playlist.csv');
 document.body.appendChild(link);
 document.querySelector('#download-csv').click();

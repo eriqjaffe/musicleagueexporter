@@ -66,7 +66,7 @@ console.log(csv)
 // Once we are done looping, download the .csv by creating a link
 let link = document.createElement('a');
 link.id = 'download-csv';
-link.setAttribute('href', 'data:text/csv;charset=utf-8,' + csv);
+link.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURI(csv));
 link.setAttribute('download', 'playlist.csv');
 document.body.appendChild(link);
 document.querySelector('#download-csv').click();

@@ -11,4 +11,6 @@ How to use:
 5) Download of playlist.csv should happen almost immediately
 6) The table is printed to the console too and you should be able to copy it out if the csv is weird
 
-This fork works on Music League rounds that have already been completed, including the same of the submitter and the number of points the song received.  It also fixes the csv export missing the line breaks
+This fork works on Music League rounds that have already been completed, including the same of the submitter and the number of points the song received.
+
+It also fixes the csv export missing the line breaks.

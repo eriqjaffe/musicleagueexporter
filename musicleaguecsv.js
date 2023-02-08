@@ -3,9 +3,18 @@
 var songs = Array.from(document.getElementsByClassName("rounded"));
 var playlistInfo = [];
 
+var roundHeader = songs[0].getElementsByClassName("d-block")
+var round = roundHeader[0].innerHTML.slice(6)
+
+var roundNameHeader = songs[0].getElementsByTagName("h5")
+var roundName = roundNameHeader[0].innerHTML
+
 songs.slice(1).forEach(song => {
     var songInfo = {
+        round: round,
+      	roundName: '"'+roundName+'"',
         name: "",
+        trackUrl: "",
         artist: "",
         album: "",
         submittedBy: "",
@@ -13,13 +22,13 @@ songs.slice(1).forEach(song => {
     };
     var dats = Array.from(song.getElementsByClassName("d-block"));
     var i = 0;
-    var name, artist, album, sumbittedBy, votes;
+    var name, trackUrl, artist, album, sumbittedBy, votes;
     dats.forEach(dat => {
        
         var datEls = Array.from(dat.children);
-    		console.log(i)
         if (i == 0) {
             songInfo.name = '"' + datEls[0].innerHTML + '"';
+            songInfo.trackUrl = datEls[0].href;
         } else if (i == 1) {
             songInfo.artist = '"' + datEls[0].innerHTML + '"';
         } else if (i == 2) {
@@ -67,6 +76,6 @@ console.log(csv)
 let link = document.createElement('a');
 link.id = 'download-csv';
 link.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURI(csv));
-link.setAttribute('download', 'playlist.csv');
+link.setAttribute('download', roundName+'.csv');
 document.body.appendChild(link);
 document.querySelector('#download-csv').click();

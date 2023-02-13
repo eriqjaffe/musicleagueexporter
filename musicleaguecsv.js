@@ -47,13 +47,14 @@ songs.slice(1).forEach(song => {
 
 console.table(playlistInfo);
 
-let csv
+let csv = "round,roundName,trackName,trackURL,artist,album,submittedBy,votes\r\n"
     // Loop the array of objects
 for (let row = 0; row < playlistInfo.length; row++) {
+    console.log(playlistInfo[row])
     let keysAmount = Object.keys(playlistInfo[row]).length
     let keysCounter = 0
         // If this is the first row, generate the headings
-    if (row === 0) {
+/*    if (row === 0) {
         // Loop each property of the object
         for (let key in playlistInfo[row]) {
             // This is to not add a comma at the last cell
@@ -61,12 +62,12 @@ for (let row = 0; row < playlistInfo.length; row++) {
             csv += key + (keysCounter + 1 < keysAmount ? ',' : '\r\n')
             keysCounter++
         }
-    } else {
+    } else { */
         for (let key in playlistInfo[row]) {
             csv += playlistInfo[row][key] + (keysCounter + 1 < keysAmount ? ',' : '\r\n')
             keysCounter++
         }
-    }
+/*    } */
     keysCounter = 0
 }
 

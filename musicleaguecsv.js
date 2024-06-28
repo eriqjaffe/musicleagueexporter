@@ -31,7 +31,7 @@ songs.slice(0).forEach(song => {
         songInfo.trackUrl = '"https://open.spotify.com/track/'+trackURI[2]+'"'
         if (i == 0) {
           var bar = Array.from(dat.parentElement.getElementsByClassName("text-end"))
-          songInfo.trackName = '"' + datEls[0].innerHTML + '"';
+          songInfo.trackName = '"' + datEls[0].innerHTML.match(/>([^<]+)<\/a>/)[1] + '"';
           songInfo.artist = '"' + datEls[1].innerHTML + '"';
           songInfo.album = '"' + datEls[2].innerHTML + '"';
           songInfo.votes = bar[0].getElementsByClassName("m-0")[0].innerText

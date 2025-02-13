@@ -47,11 +47,11 @@ songs.slice(0).forEach(song => {
 
 playlistInfo.sort((a, b) => {
     // First compare by artist
-    if (a.artist < b.artist) return -1;
-    if (a.artist > b.artist) return 1;
+    if (a.artist.toLowerCase() < b.artist.toLowerCase()) return -1;
+    if (a.artist.toLowerCase() > b.artist.toLowerCase()) return 1;
     // If artist is the same, compare by trackName
-    if (a.trackName < b.trackName) return -1;
-    if (a.trackName > b.trackName) return 1;
+    if (a.trackName.toLowerCase() < b.trackName.toLowerCase()) return -1;
+    if (a.trackName.toLowerCase() > b.trackName.toLowerCase()) return 1;
     return 0;
 });
 

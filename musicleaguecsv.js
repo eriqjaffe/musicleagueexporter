@@ -8,7 +8,7 @@ var playlistInfo = [];
 var round = texts[0].innerHTML.slice(6)
 
 var roundNameHeader = songs[0].getElementsByTagName("h5")
-var roundName = headers[3].innerHTML
+var roundName = headers[4].innerHTML
 
 songs.slice(0).forEach(song => {
     var songInfo = {
